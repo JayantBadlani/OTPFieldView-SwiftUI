@@ -1,6 +1,8 @@
 # OTPFieldView - SwiftUI 
 (One-Time Password Input Field) 
 
+<img width="435" alt="Screenshot 2023-10-06 at 6 37 18 PM" src="https://github.com/JayantBadlani/OTPFieldView-SwiftUI/assets/37996543/81cafe17-fdf2-46a5-9401-6abb2dbc21ca">
+
 ## Installation
 To use OTPFieldView in your SwiftUI project, Copy the OTPFieldView.swift file into your project and here's an Example of how to use this with SwiftUI:
 
@@ -9,17 +11,30 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var otp: String = ""
+    @FocusState private var isOTPFieldFocused: Bool
+    private let numberOfFieldsInOTP = 6
     
     var body: some View {
-    
+        
         VStack(alignment: .leading, spacing: 8) {
             Text("VERIFICATION CODE")
                 .foregroundColor(Color.gray)
                 .font(.system(size: 12))
-                
-            OTPFieldView(numberOfFields: 5, otp: .constant("54321"))
-
+            
+            OTPFieldView(numberOfFields: numberOfFieldsInOTP, otp: $otp)
+                .onChange(of: otp) { newOtp in
+                    if newOtp.count == numberOfFieldsInOTP {
+                        // Verify OTP
+                    }
+                }
+                .focused($isTextFieldFocused)
+            
             Text("Entered OTP: \(otp)")
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                isTextFieldFocused = true
+            }
         }
     }
 }
