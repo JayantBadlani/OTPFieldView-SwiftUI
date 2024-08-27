@@ -4,7 +4,7 @@
 <img width="435" alt="Screenshot 2023-10-06 at 6 37 18 PM" src="https://github.com/JayantBadlani/OTPFieldView-SwiftUI/assets/37996543/81cafe17-fdf2-46a5-9401-6abb2dbc21ca">
 
 ## Installation
-To use OTPFieldView in your SwiftUI project, Copy the OTPFieldView.swift file into your project and here's an Example of how to use this with SwiftUI:
+To use OTPFieldView in your SwiftUI project, Copy the **OTPFieldView.swift** file into your project and here's an Example of how to use this with SwiftUI:
 
 ```ruby
 import SwiftUI
